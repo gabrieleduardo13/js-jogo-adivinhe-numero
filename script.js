@@ -1,24 +1,46 @@
-alert("Boas vindas!");
+alert("Boas vindas");
 
-let nomeJogador = prompt("Digite seu nome: ");
-let querJogar = confirm(nomeJogador + ", você quer jogar?"); // Cria a variável querJogar
+let nomeJogador = prompt("Digite seu nome");
 
-if (querJogar) {
-    alert("Boa sorte, " + nomeJogador + "!");
+let querJogar = confirm("Deseja jogar?");
+
+if(querJogar) {
+
+    alert("Boa Sorte, " + nomeJogador);
 
     const numeroSecreto = 7;
-    // O parseInt garante que o texto digitado seja convertido para número
-    let numeroDigitado = parseInt(prompt("Digite um número: "));
+    let acertou = false;
+    while (acertou === false) {
+    
 
-    // A verificação precisa ficar DENTRO do bloco if(querJogar) 
-    // para conseguir acessar o numeroSecreto e o numeroDigitado
-    if (numeroSecreto === numeroDigitado) {
-        alert("Parabéns, " + nomeJogador + "! Você acertou o número.");
-    } else if (numeroSecreto < numeroDigitado) {
-        alert("O número secreto é menor que " + numeroDigitado + ". Tente novamente!");
-    } else {   
-        alert("O número secreto é maior que " + numeroDigitado + ". Que pena, " + nomeJogador + "! Até a próxima!");
+
+
+    let numeroDigitado = prompt("Digite um numero");
+    numeroDigitado = Number(numeroDigitado);
+
+    if(numeroDigitado < 1 || numeroDigitado > 10 || isNaN(numeroDigitado)) {
+
+        alert("Número inválido! Digite de 1 a 10.");
+
+
+    } else if(numeroSecreto == numeroDigitado) {
+
+        alert("Parabéns, você acertou");
+acertou = true
+    } else if(numeroSecreto < numeroDigitado) {
+
+        alert("É menor!");
+
+    } else if(numeroSecreto > numeroDigitado) {
+
+        alert("É maior!");
+
     }
+    }/
 } else {
-    alert("Que pena, " + nomeJogador + "! Até a próxima!");
+
+    alert("Que pena! Até a próxima");
+
+    
 }
+
